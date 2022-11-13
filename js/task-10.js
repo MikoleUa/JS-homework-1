@@ -17,13 +17,10 @@ function handleClick(event) {
       i * 10 + 30
     }px; height: ${i * 10 + 30}px"></div>`;
   }
-  console.log(1);
   if (event.target.hasAttribute("data-create")) {
     elemBoxes.insertAdjacentHTML("beforeend", elements);
-    console.log(1);
   }
   if (event.target.hasAttribute("data-destroy")) {
     elemBoxes.innerHTML = "";
-    console.log(2);
   }
 }
