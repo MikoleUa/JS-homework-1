@@ -69,7 +69,7 @@ new CartStorage(storageKey, fieldMap)
 | quantity    | qty       | кількість                   |
 | name        | title     | необов'язково, назва товару |
 
-### ⚠️ Ключові поля в CartStorage
+### ⚠️ Ключові поля (fieldMap) в CartStorage
 
 При додаванні товару в кошик:
 Обов'язкові для додавання товару:
