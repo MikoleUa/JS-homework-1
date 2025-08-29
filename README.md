@@ -20,6 +20,7 @@ cart.addItem({
  price: 999,
  quantity: 1
 });
+```
 
 ---
 
