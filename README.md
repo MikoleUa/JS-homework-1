@@ -17,6 +17,8 @@ cart.addItem({
   price: 999,
   quantity: 1,
 });
+
+console.log(cart.getSummary());
 ```
 
 ---
