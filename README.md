@@ -1,6 +1,3 @@
-# JS-homework-1
-
-
 # CartStorage - Документація
 
 `CartStorage` - це гнучкий клас для управління кошиком покупок з автоматичним збереженням в `localStorage`.
@@ -15,10 +12,10 @@ const cart = new CartStorage();
 
 // Додаємо товар
 cart.addItem({
- id: "1",
- name: "iPhone 15",
- price: 999,
- quantity: 1
+  id: "1",
+  name: "iPhone 15",
+  price: 999,
+  quantity: 1,
 });
 ```
 
@@ -28,14 +25,18 @@ cart.addItem({
 
 1. GitHub (manual import)
 
+```javascript
 <script src="https://raw.githubusercontent.com/MikoleUa/cart-storage/main/dist/cart-storage.js"></script>
+```
 
 2. ESM CDN (modern projects)
 
+```javascript
 <script type="module">
-import { CartStorage } from 'https://cdn.jsdelivr.net/gh/MikoleUa/cart-storage@main/dist/cart-storage.esm.js';
+  import {CartStorage} from
+  'https://cdn.jsdelivr.net/gh/MikoleUa/cart-storage@main/dist/cart-storage.esm.js';
 </script>
-
+```
 
 ⚙️ Ініціалізація CartStorage
 
@@ -46,9 +47,9 @@ fieldMap (object, необов'язковий) – мапа полів для р
 
 Важливо про fieldMap:
 Якщо передаєте fieldMap, він повинен містити три ключі:
-    id – поле, де зберігається унікальний ідентифікатор товару
-    price – поле з ціною
-    quantity – поле з кількістю
+id – поле, де зберігається унікальний ідентифікатор товару
+price – поле з ціною
+quantity – поле з кількістю
 Якщо fieldMap не передано, CartStorage очікує стандартні поля у товарів:
 id, price, quantity.
 Додаткові поля (name, category, description тощо) зберігаються як є.
@@ -57,28 +58,29 @@ id, price, quantity.
 
 При додаванні товару в кошик:
 Обов'язкові для додавання товару:
-    id – унікальний ідентифікатор товару
-    price – ціна за одиницю
-    quantity – кількість
+id – унікальний ідентифікатор товару
+price – ціна за одиницю
+quantity – кількість
 
 Поле, яке створює CartStorage автоматично:
-- total – загальна вартість товару (price * quantity), **не передається вручну**
-Додаткові поля (зберігаються як є):
-title, name, description, specs, images та інші
+
+- total – загальна вартість товару (price \* quantity), **не передається вручну**
+  Додаткові поля (зберігаються як є):
+  title, name, description, specs, images та інші
 
 🛠️ Методи
-| Метод                          | Опис                                | Поведінка                                         | Вхідні параметри                                                         |
+| Метод | Опис | Поведінка | Вхідні параметри |
 | ------------------------------ | ----------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------ |
-| `addItem(item)`                | Додає товар                         | Якщо товар з таким `id` вже є — оновлює кількість | `item` — об’єкт товару з полями `id`, `price`, `quantity` та додатковими |
-| `updateQuantity(id, quantity)` | Оновлює кількість товару            | Якщо `quantity <= 0` — видаляє товар              | `id` — унікальний ідентифікатор, `quantity` — нова кількість             |
-| `removeItem(id)`               | Видаляє товар                       | Товар видаляється                                 | `id` — унікальний ідентифікатор                                          |
-| `clear()`                      | Очищає кошик                        | Всі товари видаляються                            | —                                                                        |
-| `getItems()`                   | Повертає масив товарів              | Масив нормалізованих об’єктів                     | —                                                                        |
-| `getTotalQuantity()`           | Повертає загальну кількість         | Число — сума всіх `quantity`                      | —                                                                        |
-| `getTotalPrice()`              | Повертає загальну суму              | Число — сума `price * quantity`                   | —                                                                        |
-| `getSummary()`                 | Повертає повну інформацію про кошик | Об’єкт `{ items, totalQuantity, totalPrice }`     | —                                                                        |
-| `onChange(callback)`           | Підписка на зміни кошика            | Викликає `callback` при будь-якій зміні           | `callback(items)` — функція, де `items` — поточний стан кошика           |
-| `offChange(handler)`           | Відписка від змін                   | Видаляє підписку                                  | `handler` — обробник, повернений `onChange`                              |
+| `addItem(item)` | Додає товар | Якщо товар з таким `id` вже є — оновлює кількість | `item` — об’єкт товару з полями `id`, `price`, `quantity` та додатковими |
+| `updateQuantity(id, quantity)` | Оновлює кількість товару | Якщо `quantity <= 0` — видаляє товар | `id` — унікальний ідентифікатор, `quantity` — нова кількість |
+| `removeItem(id)` | Видаляє товар | Товар видаляється | `id` — унікальний ідентифікатор |
+| `clear()` | Очищає кошик | Всі товари видаляються | — |
+| `getItems()` | Повертає масив товарів | Масив нормалізованих об’єктів | — |
+| `getTotalQuantity()` | Повертає загальну кількість | Число — сума всіх `quantity` | — |
+| `getTotalPrice()` | Повертає загальну суму | Число — сума `price * quantity` | — |
+| `getSummary()` | Повертає повну інформацію про кошик | Об’єкт `{ items, totalQuantity, totalPrice }` | — |
+| `onChange(callback)` | Підписка на зміни кошика | Викликає `callback` при будь-якій зміні | `callback(items)` — функція, де `items` — поточний стан кошика |
+| `offChange(handler)` | Відписка від змін | Видаляє підписку | `handler` — обробник, повернений `onChange` |
 
 🔄 Відстежування змін у кошику
 
@@ -98,11 +100,13 @@ offChange(handler) — видаляє підписку.
 
 Всі методи, що змінюють стан, можна викликати у ланцюжку:
 
+```javascript
 cart
- .addItem({ id: "1", name: "Product 1", price: 100, quantity: 1 })
- .addItem({ id: "2", name: "Product 2", price: 200, quantity: 2 })
- .updateQuantity("1", 3)
- .removeItem("2");
+  .addItem({ id: "1", name: "Product 1", price: 100, quantity: 1 })
+  .addItem({ id: "2", name: "Product 2", price: 200, quantity: 2 })
+  .updateQuantity("1", 3)
+  .removeItem("2");
+```
 
 🔧 Робота з різними структурами API
 
@@ -111,157 +115,175 @@ cart
 Різні API можуть використовувати різні назви полів, але CartStorage завжди очікує 3 стандартні поля:
 JSON
 
+```javascript
 // Стандартна структура (без fieldMap)
 { "id": "123", "price": 100, "quantity": 1,}
 // API #1 - інші назви полів
 { "productId": "123", "cost": 100, "qty": 1, }
 // API #2 - ще інші назви
 { "sku": "123", "unitPrice": 100, "amount": 1, }
+```
 
+```javascript
 // Для API #1
 const cart1 = new CartStorage("cart1", {
- id: "productId", // шукати ID в полі "productId"
- price: "cost", // шукати ціну в полі "cost"
- quantity: "qty" // шукати кількість в полі "qty"
+  id: "productId", // шукати ID в полі "productId"
+  price: "cost", // шукати ціну в полі "cost"
+  quantity: "qty", // шукати кількість в полі "qty"
 });
+```
 
+```javascript
 // Для API #2
 const cart2 = new CartStorage("cart2", {
- id: "sku", // шукати ID в полі "sku"
- price: "unitPrice", // шукати ціну в полі "unitPrice"
- quantity: "amount" // шукати кількість в полі "amount"
+  id: "sku", // шукати ID в полі "sku"
+  price: "unitPrice", // шукати ціну в полі "unitPrice"
+  quantity: "amount", // шукати кількість в полі "amount"
 });
+```
 
+```javascript
 // Тепер можна працювати з будь-якою структурою
 cart1.addItem({
- productId: "123",
- cost: 100,
- qty: 1,
- title: "Product" // title збережеться як додаткове поле
+  productId: "123",
+  cost: 100,
+  qty: 1,
+  title: "Product", // title збережеться як додаткове поле
 });
 cart2.addItem({
- sku: "456",
- unitPrice: 200,
- amount: 2,
- productName: "Product" // productName збережеться як додаткове поле
+  sku: "456",
+  unitPrice: 200,
+  amount: 2,
+  productName: "Product", // productName збережеться як додаткове поле
 });
+```
 
 ⚠️ Обов'язкові ключі в fieldMap:
 Якщо ви передаєте fieldMap, він повинен містити всі 3 ключі:
-JavaScript
 
+```javascript
 // Неправильно - пропущений ключ "price" ❌
 const cart = new CartStorage("cart", {
- id: "productId",
- quantity: "qty"
- // price відсутній!
+  id: "productId",
+  quantity: "qty",
+  // price відсутній!
 });
 // Правильно - всі 3 ключі присутні ✅
 const cart = new CartStorage("cart", {
- id: "productId",
- price: "cost",
- quantity: "qty"
+  id: "productId",
+  price: "cost",
+  quantity: "qty",
 });
+```
 
 💾 Автоматичне збереження
 
 Кошик автоматично зберігається в localStorage після кожної зміни:
 
+```javascript
 const cart1 = new CartStorage("main_cart");
 const cart2 = new CartStorage("wishlist");
 
 // Кожен кошик автоматично зберігається у localStorage і відновлюється при перезавантаженні
 cart1.addItem({ id: "1", price: 100 }); // → localStorage["main_cart"]
 cart2.addItem({ id: "2", price: 200 }); // → localStorage["wishlist"]
+```
 
 ❌ Обробка помилок
 
 Дублювання товарів
+
+```javascript
 cart.addItem({ id: "1", name: "Product", price: 100 });
 cart.addItem({ id: "1", name: "Product", price: 100 });
 // Console warning: Item with id "1" already exists. Updating quantity instead.
+```
 
 Відсутній id
+
+```javascript
 cart.addItem({ name: "Product", price: 100 });
 // Error: Item must have a id field ❌
+```
 
 Якщо localStorage недоступний, помилка логується в консоль, але додаток не падає.
 
 🎯 Приклади використання
 
-E-commerce кошик
-
+```javascript
 const cart = new CartStorage("shopping_cart");
 
 // Додавання товару з каталогу
 function addToCart(product) {
- try {
- cart.addItem({
- id: product.id,
- name: product.name,
- price: product.price,
- quantity: 1,
- image: product.image,
- category: product.category
- });
+  try {
+    cart.addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: 1,
+      image: product.image,
+      category: product.category,
+    });
 
- // Оновити UI
- updateCartButton(product.id, true);
- showNotification(`${product.name} додано до кошика`);
-
- } catch (error) {
- if (error.message.includes('already in the cart')) {
- showNotification(`${product.name} вже в кошику`);
- }
- }
+    // Оновити UI
+    updateCartButton(product.id, true);
+    showNotification(`${product.name} додано до кошика`);
+  } catch (error) {
+    if (error.message.includes("already in the cart")) {
+      showNotification(`${product.name} вже в кошику`);
+    }
+  }
 }
 
 // Оновлення кількості в кошику
 function updateCartItemQuantity(id, quantity) {
- cart.updateQuantity(id, quantity);
- renderCartSummary();
+  cart.updateQuantity(id, quantity);
+  renderCartSummary();
 }
+```
 
 Інтеграція з API
 
+```javascript
 // Конфігурація під API
 const apiCart = new CartStorage("api_cart", {
- id: "productId",
- name: "title",
- price: "unitPrice",
- quantity: "qty"
+  id: "productId",
+  name: "title",
+  price: "unitPrice",
+  quantity: "qty",
 });
 
 // Додавання товару з API відповіді
-fetch('/api/products/123')
- .then(response => response.json())
- .then(product => {
- // API повертає: { productId, title, unitPrice, description, images }
- apiCart.addItem({
- ...product,
- qty: 1 // додаємо кількість
- });
- });
+fetch("/api/products/123")
+  .then((response) => response.json())
+  .then((product) => {
+    // API повертає: { productId, title, unitPrice, description, images }
+    apiCart.addItem({
+      ...product,
+      qty: 1, // додаємо кількість
+    });
+  });
+```
 
 Множинні кошики
 
+```javascript
 const mainCart = new CartStorage("cart");
 const wishlist = new CartStorage("wishlist");
 const compareList = new CartStorage("compare");
 
 // Переміщення з wishlist до кошика
 function moveToCart(productId) {
- const item = wishlist.getItems().find(item => item.id === productId);
- if (item) {
- wishlist.removeItem(productId);
+  const item = wishlist.getItems().find((item) => item.id === productId);
+  if (item) {
+    wishlist.removeItem(productId);
 
- try {
- mainCart.addItem(item);
- } catch (error) {
- // Товар вже в кошику
- wishlist.addItem(item); // повертаємо назад
- }
- }
+    try {
+      mainCart.addItem(item);
+    } catch (error) {
+      // Товар вже в кошику
+      wishlist.addItem(item); // повертаємо назад
+    }
+  }
 }
-
 ```
