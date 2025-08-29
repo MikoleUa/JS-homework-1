@@ -52,8 +52,8 @@ fieldMap (object, необов'язковий) – мапа полів для р
   - quantity – поле з кількістю
   - 
 Якщо fieldMap не передано, CartStorage очікує стандартні поля у товарів:
-    id, price, quantity.
-Додаткові поля (name, category, description тощо) зберігаються як є.
+ id, price, quantity.
+ Додаткові поля (name, category, description тощо) зберігаються як є.
 
 ### ⚠️ Ключові поля в CartStorage
 
