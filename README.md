@@ -69,7 +69,7 @@ new CartStorage(storageKey, fieldMap)
 | quantity    | qty       | кількість                   |
 
 Поле, яке створює CartStorage автоматично:  
-'total' – загальна вартість товару (price \* quantity), **не передається вручну**  
+`total` – загальна вартість товару (price \* quantity), **не передається вручну**  
   Додаткові поля (зберігаються як є):
   title, name, description, specs, images та інші
 Приклади ініціалізації:
