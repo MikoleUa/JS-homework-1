@@ -87,11 +87,15 @@ quantity – кількість
 CartStorage підтримує підписку на зміни стану кошика через onChange та відписку через offChange.
 Це зручно, якщо потрібно автоматично оновлювати UI або виконувати інші дії після зміни кошика.
 
+```javascript
 // Підписка на зміни
 const handler = cart.onChange(function);
+```
 
+```javascript
 // Відписка
 cart.offChange(handler);
+```
 
 onChange(callback) — додає підписку, повертає обробник для подальшого видалення.
 offChange(handler) — видаляє підписку.
