@@ -50,8 +50,9 @@ fieldMap (object, необов'язковий) – мапа полів для р
   - id – поле, де зберігається унікальний ідентифікатор товару
   - price – поле з ціною
   - quantity – поле з кількістю
+  - 
 Якщо fieldMap не передано, CartStorage очікує стандартні поля у товарів:
-  - id, price, quantity.
+    id, price, quantity.
 Додаткові поля (name, category, description тощо) зберігаються як є.
 
 ### ⚠️ Ключові поля в CartStorage
