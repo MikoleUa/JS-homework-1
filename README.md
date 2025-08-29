@@ -49,13 +49,11 @@ new CartStorage(storageKey, fieldMap)
 
 Важливо про fieldMap:  
 Якщо передаєте fieldMap, він повинен містити три ключі:  
-
     id – поле, де зберігається унікальний ідентифікатор товару  
     
     price – поле з ціною  
     
-    quantity – поле з кількістю  
-    
+    quantity – поле з кількістю    
 Якщо fieldMap не передано, CartStorage очікує стандартні поля у товарів:  
 
  `id`, `price`, `quantity`.
