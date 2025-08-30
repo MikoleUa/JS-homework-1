@@ -38,7 +38,7 @@ console.log(cart.getSummary());
 
 ---
 
-###🔗 **Підключення**
+### 🔗 **Підключення**
 
 1. GitHub (manual import)
 
