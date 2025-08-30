@@ -23,10 +23,15 @@
 ### 🚀 Швидкий старт
 
 ```javascript
-// Стандартне використання
+// Створюємо кошик (ключ за замовчуванням "cart")
 const cart = new CartStorage();
 
-// Додаємо товар
+// 🔔 Слухаємо зміни в кошику (оновлення UI, наприклад)
+cart.onChange((items) => {
+  updateUI(items); // тут можна перерендерити кнопку/віджет кошика
+});
+
+// ➕ Додаємо товар
 cart.addItem({
   id: "1",
   name: "iPhone 15",
@@ -34,7 +39,17 @@ cart.addItem({
   quantity: 1,
 });
 
+// 📊 Отримуємо зведення по кошику
 console.log(cart.getSummary());
+/*
+{
+  items: [
+    { id: "1", name: "iPhone 15", price: 999, quantity: 1, total: 999 }
+  ],
+  totalQuantity: 1,
+  totalPrice: 999
+}
+*/
 ```
 
 ---
@@ -156,12 +171,16 @@ CartStorage підтримує **підписку** на зміни стану �
 ```javascript
 const cart = new CartStorage();
 // Підписка на зміни
-cart.onChange(function);
+cart.onChange((items) => {
+  updateUI(items);
+});
 ```
 
 ```javascript
 const cart = new CartStorage();
-const handler = cart.onChange(function);
+const handler = cart.onChange((items) => {
+  updateUI(items);
+});
 // Відписка
 cart.offChange(handler);
 ```
